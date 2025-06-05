@@ -1,0 +1,117 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  user-select: none;
+}
+
+.container {
+  background-color: #fff;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 12px 30px rgba(118, 75, 162, 0.3);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.quote-text {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #333;
+  min-height: 5rem;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.quote-author {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-style: italic;
+  color: #666;
+  user-select: text;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+button#new-quote-btn {
+  align-self: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  padding: 0.85rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  user-select: none;
+}
+
+button#new-quote-btn:hover {
+  background: linear-gradient(135deg, #8567ff, #a567ff);
+  box-shadow: 0 10px 30px rgba(133, 103, 255, 0.6);
+  transform: translateY(-3px);
+}
+
+button#new-quote-btn:active {
+  background: linear-gradient(135deg, #4e46b0, #563fae);
+  box-shadow: 0 5px 15px rgba(78, 70, 176, 0.7);
+  transform: translateY(0);
+}
+
+/* Fade animation classes */
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.7s ease;
+}
+
+/* Color shifting animation on quote text */
+@keyframes colorShift {
+  0%, 100% { color: #333; }
+  50% { color: #667eea; }
+}
+
+.color-animate {
+  animation: colorShift 2s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .container {
+    padding: 2rem 1.5rem;
+  }
+  button#new-quote-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
